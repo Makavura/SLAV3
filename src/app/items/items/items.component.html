@@ -1,0 +1,20 @@
+<form [formGroup]="this.itemsService.form" (ngSubmit)="onSubmit()">
+  <input placeholder="Item Name"
+  formControlName="name"
+  type="text"
+  class="input-field col s12">
+  <input placeholder="Item Price"
+  formControlName="price"
+  type="number"
+  class="input-field col s12">
+  <button class="waves-effect waves-light btn col s4"   *ngFor='let item of items'   (click)="addItem(item)">  {{item}}  </button>
+  <ul class="collection">
+    <li *ngFor="let item of items">
+      <span class="col si1">{{item}}</span>
+      <a class="col si" (click)="removeItem(item)">x</a>
+    </li>
+  </ul>
+  <button class="waves-effect waves-light btn col si2" (click)="onSubmit()">
+Submit
+  </button>
+</form>

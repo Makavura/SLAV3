@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-
-import { AngularFirestore } from '@angular/fire/firestore';
-
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+// import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
-import { NgModule } from '@angular/core';
-
+// import { Item } from './items/shared/item';
+// import { NgModule } from '@angular/core';
+// export interface item {
+//   name: string,
+//   price: number
+// }
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,11 +22,13 @@ import { NgModule } from '@angular/core';
 //   ]
 // })
 export class AppComponent {
-  
+
   title = 'SLAV3';
-  items: Observable<any[]>;
-  constructor(db: AngularFirestore) { 
+   items: Observable<any[]>;
+  constructor(db: AngularFirestore) {
     this.items = (db.collection('items').valueChanges());
-    console.log(this.items)
+    // this.items = (db.collection('items').snapshotChanges());
+    console.log(this.items);
   }
+
 }
