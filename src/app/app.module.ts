@@ -10,22 +10,30 @@ import { ItemsService } from './items/shared/items.service';
 import { ItemsComponent } from './items/items/items.component';
 import { ItemListComponent } from './items/item-list/item-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './items/shared/auth.service';
+import { LoginComponent } from './items/login/login.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemsComponent,
-    ItemListComponent
+    ItemListComponent,
+    LoginComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [ItemsService],
+  providers: [
+    ItemsService,
+  AuthService
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
