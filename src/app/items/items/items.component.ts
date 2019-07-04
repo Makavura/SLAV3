@@ -16,15 +16,19 @@ export class ItemsComponent implements OnInit {
 
 ngOnInit() {
 }
-  item = [];
+  // item = [];
 
 
 
   onSubmit() {
-    this.itemsService.form.value.name = this.item;
+    // this.itemsService.form.value.name = this.item;
     let data = this.itemsService.form.value;
-
     this.itemsService.createItem(data).then(res => {} )
+    this.reset();
   }
+
+  reset() {
+    this.itemsService.form.reset();
+}
 
 }

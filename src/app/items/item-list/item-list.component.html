@@ -1,11 +1,29 @@
 <div>
-
-<ul >
-  <li *ngFor="let item of items | async">
-     {{ item | json}}
-     {{item["name"]}}
-     {{item.price}}
-  </li>
-</ul>
+<!-- tikiti -->
+<!-- <ul >
+  <li *ngFor="let item of items | async"> -->
+     <!-- {{ item | json}} -->
+     <!-- {{item.name}}
+     {{item.price}} -->
+     <table  >
+      <thead>
+        <tr>
+            <th>Item Name</th>
+            <th>Item Price</th>
+        </tr>
+      </thead>
+    
+      <tbody *ngFor="let item of items | async">
+        <tr>
+          <td>{{item.name}}</td>
+          <td>{{item.price}}</td>
+        </tr>
+      </tbody>
+    </table>
+  <!-- </li>
+</ul> -->
 
 </div>
+
+
+      
