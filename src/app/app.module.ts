@@ -13,17 +13,24 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './items/shared/auth.service';
 import { LoginComponent } from './items/login/login.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
+import { ShoppingComponent } from './items/shopping/shopping.component';
+import { PagenotfoundComponent } from './items/pagenotfound/pagenotfound.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemsComponent,
     ItemListComponent,
-    LoginComponent
+    LoginComponent,
+    ShoppingComponent,
+    PagenotfoundComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    AngularFireAuthGuardModule,
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     BrowserModule,
