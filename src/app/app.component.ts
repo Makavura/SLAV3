@@ -24,11 +24,12 @@ import { Observable } from 'rxjs';
 export class AppComponent {
 
   title = 'SLAV3';
-   items: Observable<any[]>;
-  constructor(db: AngularFirestore) {
-    this.items = (db.collection('items').valueChanges());
+  //  items: Observable<any[]>;
+  // constructor(db: AngularFirestore) {
+    constructor() {
+    // this.items = (db.collection('items').valueChanges());
     // this.items = (db.collection('items').snapshotChanges());
-    console.log(this.items);
+    // console.log(this.items);
   }
 
 }
