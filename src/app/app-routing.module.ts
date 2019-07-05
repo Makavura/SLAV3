@@ -12,14 +12,11 @@ const redirectUnauthorizedToLogin = redirectUnauthorizedTo(['login']);
 const redirectLoggedInToItems = redirectLoggedInTo(['shopping-list']);
 
 const routes: Routes = [
-  // {path: '', component: ShoppingComponent},
-  {path: '', component: ShoppingComponent, ...canActivate(redirectUnauthorizedToLogin) },
-  { path: 'login', component: LoginComponent},
-  { path: '**', component: PagenotfoundComponent},
-  // { path: 'login', component: LoginComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToItems }},
-  {path: 'shopping-list', component: ShoppingComponent}
-  // , canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } }
-  // {path: 'shopping-list', component: ShoppingComponent}
+  { path: '', component: ItemListComponent, ...canActivate(redirectUnauthorizedToLogin) },
+  { path: 'login', component: LoginComponent, },
+  { path: 'add-item', component: ItemsComponent, ...canActivate(redirectUnauthorizedToLogin) },
+  // { path: 'items', component: ItemListComponent, ...canActivate(redirectUnauthorizedToLogin) },
+  { path: '**', component: PagenotfoundComponent, }
 ];
 
 @NgModule({
