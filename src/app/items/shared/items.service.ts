@@ -17,9 +17,6 @@ export class ItemsService {
     name: new FormControl(''),
     price: new FormControl('')
   });
-  public myItems: any;
-  public lalala: any;
-  public malala: any;
 
   createItem(data) {
     return new Promise<any>((resolve, reject) => {
@@ -32,8 +29,9 @@ export class ItemsService {
     return this.firestore.collection('items').snapshotChanges();
 
   }
-  resetForm(){
-    this.form.reset()
+
+  resetForm() {
+    this.form.reset();
   }
 
 }

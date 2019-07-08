@@ -59,7 +59,6 @@ export class ItemListComponent implements OnInit {
     this.itemService.getItems();
   }
 
-
 }
 
 

@@ -19,7 +19,6 @@ ngOnInit() {
     let data = this.itemsService.form.value;
     this.itemsService.createItem(data).then(res => {} )
     this.reset();
-    // this.itemsService.form.reset();
   }
 
   reset() {
