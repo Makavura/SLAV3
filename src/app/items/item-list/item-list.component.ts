@@ -14,30 +14,17 @@ import { Observable } from 'rxjs';
 export class ItemListComponent implements OnInit {
 
   items: Observable<any[]>;
-  itemTable: any;
-  lessons  = []
+
 
   constructor(db: AngularFirestore, private itemService: ItemsService) {
     this.items = db.collection('items').valueChanges();
 
-  //   db.collection('items').get().then( z => querySnapshot => {
-  //     querySnapshot.forEach(y => doc => {
-  //         // doc.data() is never undefined for query doc snapshots
-  //         console.log(doc.id, " => ", doc.data());
-  //     });
-  // });
   }
 
   ngOnInit() {
    this.itemService.getItems();
-  //  this.items.subscribe(val => (console.log(this.itemService.anan()))
-   this.items.subscribe(lessons => this.lessons = lessons)
-   console.log(this.lessons);
-   return this.lessons;
-
-
- 
-  //  console.log()
+   this.items.subscribe(val => console.log(val));
+   // returns an array
   }
 
 
