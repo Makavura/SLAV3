@@ -3,6 +3,7 @@ import { FormControl, FormGroup} from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { resolve, reject } from 'q';
 import { map } from 'rxjs/operators';
+import { } from '../shared/item';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,10 @@ export class ItemsService {
     return this.firestore.collection('items').snapshotChanges();
 
   }
+  resetForm(){
+    this.form.reset()
+  }
+
 }
 
 

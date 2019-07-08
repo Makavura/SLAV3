@@ -8,28 +8,22 @@ import { Observable } from 'rxjs';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
-  // name = this.itemsService.form.value.name;
-  // price = this.itemsService.form.value.price;
-  // data = (this.name, this.price );
 
   constructor( private itemsService: ItemsService) { };
 
 ngOnInit() {
 }
-  // item = [];
-
-  
 
 
   onSubmit() {
-    // this.itemsService.form.value.name = this.item;
     let data = this.itemsService.form.value;
     this.itemsService.createItem(data).then(res => {} )
     this.reset();
+    // this.itemsService.form.reset();
   }
 
   reset() {
-    this.itemsService.form.reset();
+    this.itemsService.resetForm();
 }
 
 }

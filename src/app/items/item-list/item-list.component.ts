@@ -16,6 +16,7 @@ export class ItemListComponent implements OnInit {
   items: Observable<any[]>;
   itemis: Item[];
   ittems: any;
+  xxx:any =[]
 
   constructor(db: AngularFirestore, private itemService: ItemsService) {
     this.items = db.collection('items').valueChanges();
@@ -24,39 +25,38 @@ export class ItemListComponent implements OnInit {
 
   ngOnInit() {
 
-   this.itemService.getItems();
-  //  this.items.subscribe(val => console.log(val));
-   this.items.subscribe(data => {
-    // console.log(data);
-    this.itemis = data.map(e => {
-      // console.log(e, data, data.length);
-      // for (dat in data ) {
-      //   console.log(dat)
-      // }
-      // let i =0;
-      // while(i < data.length){
+    this.itemService.getItems();
+    //  this.items.subscribe(val => console.log(val));
+    this.items.subscribe(data => {
+      // console.log(data);
+      this.itemis = data.map(e => {
         var titems: number[] = []
-      for(var t= 0; t<data.length; t++ ) {
-         
-         titems.push(data[t].price)
+        var sumTotal: number[] = [];
+        for (var t = 0; t < data.length; t++) {
+
+          titems.push(data[t].price)
         }
-        var total = titems.reduce(function(a,b){return a+b})
-        console.log(titems, total, titems.length)
-      // }
-      return {
-        id: e.payload.doc.id,
-        data,
-        ...e
-      } as Item;
+        var total = titems.reduce(function (a, b) { return a + b })
+        console.log(total, titems.length)
+        var titemL = titems.length;
+        // var xxx = sumTotal.push(total, titems.length)
+        // console.log(xxx)
+        // return xxx
+        this.xxx.push(total, titemL)
+        return {
+          data,
+          ...e,
+          total,
+          titemL
+          
+        }
+      });
+
     });
-  });
-
-  // const totalPrice =
-
   }
 
   getItems() {
-  this.itemService.getItems();
+    this.itemService.getItems();
   }
 
 
