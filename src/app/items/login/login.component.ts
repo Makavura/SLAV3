@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AngularFireAuth } from '@angular/fire/auth';
-// import { Router } from '@angular/router';
 import { auth } from 'firebase/app';
 
 @Component({
@@ -10,8 +9,10 @@ import { auth } from 'firebase/app';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  usersDocs: any;
+  usersDoks: any[] = [];
 
-  constructor( public afAuth: AngularFireAuth) {
+  constructor( public afAuth: AngularFireAuth ) {
 
    }
    login() {
@@ -22,6 +23,21 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.getName()
+  }
+
+  getName() {
+        // this.afAuth.user.subscribe(data => console.log(data.displayName));
+        this.afAuth.user.subscribe(data => {
+          this.usersDocs = data;
+    // tslint:disable-next-line: prefer-const
+          let userName = this.usersDocs.displayName;
+          this.usersDoks.push(userName)
+          return this.usersDoks;
+        }
+          );
+        console.log(this.usersDoks);
+
   }
 
 }
