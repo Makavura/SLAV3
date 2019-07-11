@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService, Item } from '../shared/items.service';
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-items',
@@ -9,20 +9,24 @@ import { Observable } from 'rxjs';
 })
 export class ItemsComponent implements OnInit {
 
+
+  public onlyForm = this.itemsService.form ;
+
   constructor( private itemsService: ItemsService) { };
 
-ngOnInit() {
-}
-
+ngOnInit() { }
 
   onSubmit() {
+    // tslint:disable-next-line: prefer-const
     let data = this.itemsService.form.value;
-    this.itemsService.createItem(data).then(res => {} )
+    console.log(data);
+    // this.itemsService.createItem(data).then(res => {} )
+    this.itemsService.createItem(data);
     this.reset();
   }
 
   reset() {
     this.itemsService.resetForm();
-}
+  }
 
 }

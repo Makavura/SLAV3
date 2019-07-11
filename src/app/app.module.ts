@@ -39,7 +39,8 @@ import { PagenotfoundComponent } from './items/pagenotfound/pagenotfound.compone
   ],
   providers: [
     ItemsService,
-  AuthService
+  AuthService,
+  LoginComponent
 ],
   bootstrap: [AppComponent]
 })

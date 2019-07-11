@@ -23,19 +23,21 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.getName()
+    this.getName();
   }
 
   getName() {
         // this.afAuth.user.subscribe(data => console.log(data.displayName));
+        if (this.afAuth.user) {
         this.afAuth.user.subscribe(data => {
           this.usersDocs = data;
-    // tslint:disable-next-line: prefer-const
+        // tslint:disable-next-line: prefer-const
           let userName = this.usersDocs.displayName;
-          this.usersDoks.push(userName)
-          return this.usersDoks;
+          this.usersDoks.push(userName);
+          return userName;
         }
           );
+        }
         console.log(this.usersDoks);
 
   }

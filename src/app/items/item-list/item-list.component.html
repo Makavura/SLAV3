@@ -8,7 +8,7 @@
         </tr>
       </thead>
     
-      <tbody *ngFor="let item of items | async">
+      <tbody *ngFor="let item of userItems">
         <tr>
           <td>{{item.name}}</td>
           <td>{{item.price}}</td>
@@ -20,8 +20,9 @@
     </table>
 
     <div>
-        <p>Total Price: {{xxx[0]}}</p>
-        <p>Items Count: {{xxx[1]}}</p>
+        <p>Total Price: {{totalsCount[0]}}</p>
+        <p>Items Count: {{totalsCount[1]}}</p>
+        <!-- <p>User:{{userName}}</p> -->
     </div>
 
 </div>

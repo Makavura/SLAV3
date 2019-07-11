@@ -15,7 +15,6 @@ const routes: Routes = [
   { path: '', component: ItemListComponent, ...canActivate(redirectUnauthorizedToLogin) },
   { path: 'login', component: LoginComponent, },
   { path: 'add-item', component: ItemsComponent, ...canActivate(redirectUnauthorizedToLogin) },
-  // { path: 'items', component: ItemListComponent, ...canActivate(redirectUnauthorizedToLogin) },
   { path: '**', component: PagenotfoundComponent, }
 ];
 
