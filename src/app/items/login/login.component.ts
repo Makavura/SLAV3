@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 
@@ -11,9 +10,7 @@ import { auth } from 'firebase/app';
 export class LoginComponent implements OnInit {
   usersDocs: any;
   usersDoks: any[] = [];
-
   constructor( public afAuth: AngularFireAuth ) {
-
    }
    login() {
      this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
@@ -21,13 +18,10 @@ export class LoginComponent implements OnInit {
    logout() {
      this.afAuth.auth.signOut();
    }
-
   ngOnInit() {
     this.getName();
   }
-
   getName() {
-        // this.afAuth.user.subscribe(data => console.log(data.displayName));
         if (this.afAuth.user) {
         this.afAuth.user.subscribe(data => {
           this.usersDocs = data;
@@ -39,7 +33,5 @@ export class LoginComponent implements OnInit {
           );
         }
         console.log(this.usersDoks);
-
   }
-
 }

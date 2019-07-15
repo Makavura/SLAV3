@@ -8,25 +8,18 @@ import { ItemsService, Item } from '../shared/items.service';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
-
-
   public onlyForm = this.itemsService.form ;
-
-  constructor( private itemsService: ItemsService) { };
+  constructor( private itemsService: ItemsService) { }
 
 ngOnInit() { }
-
   onSubmit() {
     // tslint:disable-next-line: prefer-const
     let data = this.itemsService.form.value;
     console.log(data);
-    // this.itemsService.createItem(data).then(res => {} )
     this.itemsService.createItem(data);
     this.reset();
   }
-
   reset() {
     this.itemsService.resetForm();
   }
-
 }
